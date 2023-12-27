@@ -43,7 +43,7 @@ document.getElementById("download").addEventListener("click", async () => {
         console.log(apiResponsePart2.url)
         window.open(apiResponsePart2.url)
     } else {
-
+            document.getElementById("result").innerHTML = "Something went wrong :("
     }
     })
 })
