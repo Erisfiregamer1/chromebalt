@@ -28,9 +28,7 @@ document.getElementById("download").addEventListener("click", async () => {
 
     console.log(apiResponsePart2)
 
-    if (apiResponsePart2.status !== "stream") {
-        document.getElementById("result").innerHTML = "Something went wrong :("
-    } else {
+    if (apiResponsePart2.status === "stream") {
         const newApiRes = await (await fetch(`${apiResponsePart2.url}&p=1`)).json()
 
         if (newApiRes.status === "continue") {
@@ -40,6 +38,11 @@ document.getElementById("download").addEventListener("click", async () => {
             
             window.location.assign(apiResponsePart2.url)
         }
+
+    } else if (apiResponsePart2.status === "redirect") {
+        console.log(apiResponsePart2.url)
+        window.open(apiResponsePart2.url)
+    } else {
 
     }
     })
