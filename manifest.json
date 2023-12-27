@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "chromebalt",
+    "description": "cobalt, extension edition",
+    "version": "1.0",
+    "action": {
+      "default_popup": "download.html",
+      "default_icon": "logo.png"
+    },
+    "permissions": ["tabs"]
+  }
