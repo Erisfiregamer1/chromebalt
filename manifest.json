@@ -13,5 +13,5 @@
       }
     },
     
-    "permissions": ["tabs"]
+    "permissions": ["tabs", "storage"]
   }

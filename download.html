@@ -2,52 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <style>
-    .glow {
-      background-color: #00ff00;
-    }
-
-    button {
-      margin: 2px 10px;
-      background-color: grey
-    }
-
-    body {
-        height: 170px;
-        width: 170px;
-
-      background-color: #222531;
-
-    display: flex;
-      flex-direction: column;
-      justify-content: center; align-items: center;
-    }
-
-    #result {
-        display: flex;
-      flex-direction: column;
-      justify-content: center; align-items: center;
-    }
-
-    .text-white {
-      color: white
-    }
-  </style>
+  <link href="main_tw.css" rel="stylesheet">
 </head>
 <body>
+  <div class="flex flex-col w-64 h-64 bg-black items-center justify-center content-center font-['Consolas'] text-white">
+    <div class="flex flex-col items-center justify-center content-center">
 
-  <div class="text-white">download as...</div>
+    <img src="logo.png" width="64" height="64">
+
+  <div class="text-white border-b-4 border-transparent">cobaltium</div>
+  <input class="border-b-2 placeholder-gray-500 p-0.5 text-white w-full bg-black" id="select" placeholder="default: current tab"></input>
+
   <br>
 
-  <button id="mp4" class="glow">MP4 (video)</button>
-  <button id="mp3">MP3 (audio)</button>
+  <div class="flex">
+  <button id="mp4" class="glow bg-gray-900 w-[4.2rem] h-6 rounded-l-md">Video</button>
+  <button id="mp3" class="bg-gray-900 w-[4.2rem] h-6 rounded-r-md">Audio</button>
+</div>
 
   <br>
-  <button id="download">download!</button>
+  <div class="flex items-center justify-center content-center">
 
-<br>
+  <button class="bg-white w-[4.2rem] text-black h-6  rounded-md" id="download">download</button> <!-- add mr-1 to this once you readd settings!!!-->
 
-  <div id="result" class="text-white"></div>
+    <!--<button class="bg-white text-black w-[5.5rem] h-6 flex flex-row items-center justify-center content-center rounded-md" id="settings"><img class="mr-1" draggable="false" height="22" width="22" alt="⚙️" src="gear.svg" loading="lazy"> settings</button>-->
+</div>
+
+<dialog class="bg-gray-900 text-white border-8 border-transparent rounded-md">
+  <div id="result" class="mb-4"></div>
+
+  <button autofocus class="bg-white text-black border-4 border-transparent rounded-md">Close</button>
+
+</dialog>
+</div>
+
+</div>
 
   <script src="main.js"></script>
 

@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glow {
+    background-color: white;
+    color: black;
+}
+
+dialog::backdrop {
+    background: rgba(255, 255, 255, 0.25);
+}

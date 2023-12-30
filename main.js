@@ -1,5 +1,13 @@
 let type = "mp4"
 
+const dialog = document.querySelector("dialog");
+
+const closeButton = document.querySelector("dialog button");
+
+closeButton.addEventListener("click", () => {
+    dialog.close()
+})
+
 document.getElementById("download").addEventListener("click", async () => {
 
 
@@ -9,7 +17,16 @@ document.getElementById("download").addEventListener("click", async () => {
 
         console.log(tabs)
 
-        const currentTab = tabs[0].url
+        let currentTab = tabs[0].url
+
+        const userTab = document.getElementById("select").value
+
+        console.log(userTab)
+
+        if (userTab !== "") {
+            currentTab = userTab
+        }
+
 
     const apiResponse = await fetch("https://co.wuk.sh/api/json", {
         method: "POST",
@@ -43,7 +60,8 @@ document.getElementById("download").addEventListener("click", async () => {
         console.log(apiResponsePart2.url)
         window.open(apiResponsePart2.url)
     } else {
-            document.getElementById("result").innerHTML = "Something went wrong :("
+        dialog.showModal()
+            document.getElementById("result").innerHTML = apiResponsePart2.text
     }
     })
 })
@@ -53,8 +71,7 @@ document.getElementById("mp3").addEventListener("click", () => {
      var allButtons = document.getElementsByTagName("button");
      for (var i = 0; i < allButtons.length; i++) {
        allButtons[i].classList.remove("glow");
-}
-
+     }
 
 
      // Add glow to the selected button
@@ -76,4 +93,8 @@ document.getElementById("mp4").addEventListener("click", () => {
     document.getElementById("mp4").classList.add("glow");
 
     type = "mp4"  
+})
+
+document.getElementById("settings").addEventListener("click", () => {
+    window.location = "settings.html"
 })
