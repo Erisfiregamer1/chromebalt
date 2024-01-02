@@ -27,6 +27,12 @@ document.getElementById("download").addEventListener("click", async () => {
             currentTab = userTab
         }
 
+        if (currentTab.includes("youtube.com")) {
+            document.getElementById("result").innerHTML = "youtube downloads are blacklisted on cobaltium to comply with chrome web store policies!"
+            dialog.showModal()
+            return
+        }
+
 
     const apiResponse = await fetch("https://co.wuk.sh/api/json", {
         method: "POST",
@@ -60,8 +66,9 @@ document.getElementById("download").addEventListener("click", async () => {
         console.log(apiResponsePart2.url)
         window.open(apiResponsePart2.url)
     } else {
+        document.getElementById("result").innerHTML = apiResponsePart2.text
         dialog.showModal()
-            document.getElementById("result").innerHTML = apiResponsePart2.text
+        return
     }
     })
 })
